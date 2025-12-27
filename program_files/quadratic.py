@@ -33,6 +33,9 @@ def factor_quadratic(vars, constants, operators) :
                 if (digit_counter > 0) :
                     b = float(vars[1][0 : digit_counter])
                     digit_counter = 0
+
+        if operators[0] == "-" :
+            b *= -1
         
     else :
         print("Please use the expression form: ax^2 + bx + c ")
@@ -52,9 +55,10 @@ def factor_quadratic(vars, constants, operators) :
         answer1 = round((-b + math.sqrt(b * b - (4 * a * c))) / (2 * a), 4)
         answer2 = round((-b - math.sqrt(b * b - (4 * a * c))) / (2 * a), 4)
 
-        print(f"{a}x^2 + {b}x + {c} = {a}(x + {answer1 * -1})(x + {answer2 * -1})")
+        print(f"Your solution is {a}(x - {answer1})(x - {answer2})")
     
     except:
         print("This quadratic expression is not factorable ")
 
     return 
+
